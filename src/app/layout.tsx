@@ -13,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{backgroundColor:"rgb(51, 129, 175)", height:"100%"}}>
-      <title>MYGO</title>
+    <html lang="en" style={{backgroundColor:"rgb(228, 228, 17)", height:"100%"}}>
+      <title>海綿寶寶梗圖搜尋</title>
       <body className={inter.className}>{children}
         <Analytics/>
       </body>
