@@ -132,14 +132,14 @@ function FullImageContainer({ fullImageSrc, setFullImageSrc, isVisible, setIsVis
           </Tooltip>
         </div>
         <div className="close-button">
-          <IconButton style={{ color:"red", background: "rgba(255, 255, 255, 0.5)", margin: "5px" }}>
+          <IconButton style={{ color: "red", background: "rgba(255, 255, 255, 0.5)", margin: "5px" }}>
 
             <CloseIcon
               onClick={function (e) {
                 setFullImageSrc("");
                 setIsVisible(false);
                 //setCurrentFrame(0);
-              }}/>
+              }} />
           </IconButton>
         </div>
 
@@ -236,17 +236,28 @@ const ItemWrapper = ({ index, result, setFullImageSrc, setIsVisible }:
       <span style={{ padding: "4px", fontSize: "0.8rem", color: "white", maxLines: "1", textOverflow: "ellipsis" }}>{`${result.name}`}</span>
     </div>
 
-    <div style={{ position: "absolute"}} className="result-item">
+    <div style={{ position: "absolute" }} className="result-item" onClick={function (e) {
+      //initial set
+      setFullImageSrc(result.i_imgur);
+      //setSegment({ episode: result.episode, frame_current: result.frame_start, frame_start: result.frame_start, frame_end: result.frame_end })
+      setIsVisible(true);
+      //setCurrentFrame(result.frame_start);
+    }}>
       <div style={{ position: "absolute", right: "0", bottom: "0" }}>
         <Tooltip
           title={<h1 style={{ fontSize: "18px" }}>{result.i_imgur}</h1>} arrow>
-          <IconButton style={{ background: "rgba(255, 255, 255, 0.5)", margin: "5px" }}>
-            <ContentCopyIcon onClick={function (e) {
-              navigator.clipboard.writeText(result.i_imgur)
-            }}>
-
-            </ContentCopyIcon>
+            <a href={result.i_imgur}>
+          <IconButton
+            style={{ background: "rgba(255, 255, 255, 0.5)", margin: "5px" }}
+            onClick={function (e) {
+              e.preventDefault()
+              e.stopPropagation();
+              navigator.clipboard.writeText(result.i_imgur);
+            }}
+            >
+            <ContentCopyIcon/>
           </IconButton>
+          </a>
         </Tooltip>
       </div>
     </div>
