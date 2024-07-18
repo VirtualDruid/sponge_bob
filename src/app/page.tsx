@@ -132,14 +132,13 @@ function FullImageContainer({ fullImageSrc, setFullImageSrc, isVisible, setIsVis
           </Tooltip>
         </div>
         <div className="close-button">
-          <IconButton style={{ color: "red", background: "rgba(255, 255, 255, 0.5)", margin: "5px" }}>
-
-            <CloseIcon
-              onClick={function (e) {
+          <IconButton  onClick={function (e) {
                 setFullImageSrc("");
                 setIsVisible(false);
                 //setCurrentFrame(0);
-              }} />
+              }}  style={{ color: "red", background: "rgba(255, 255, 255, 0.5)", margin: "5px" }}>
+
+            <CloseIcon/>
           </IconButton>
         </div>
 
