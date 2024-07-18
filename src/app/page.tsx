@@ -117,18 +117,32 @@ function FullImageContainer({ fullImageSrc, setFullImageSrc, isVisible, setIsVis
 
       <div style={{
         width: "100dvw",
-        height: "100dvw"
+        height: "100dvh"
       }}>
-
         <img className="full-image" src={fullImageSrc} loading="lazy" />
+        <div className="copy-button">
+          <Tooltip title={<h1 style={{ fontSize: "18px" }}>{fullImageSrc}</h1>} arrow>
+            <IconButton style={{ background: "rgba(255, 255, 255, 0.5)", margin: "5px" }}>
+              <ContentCopyIcon onClick={function (e) {
+                navigator.clipboard.writeText(fullImageSrc)
+              }}>
 
-        <CloseIcon
-          onClick={function (e) {
-            setFullImageSrc("");
-            setIsVisible(false);
-            //setCurrentFrame(0);
-          }}
-          className="close-button" />
+              </ContentCopyIcon>
+            </IconButton>
+          </Tooltip>
+        </div>
+        <div className="close-button">
+          <IconButton style={{ color:"red", background: "rgba(255, 255, 255, 0.5)", margin: "5px" }}>
+
+            <CloseIcon
+              onClick={function (e) {
+                setFullImageSrc("");
+                setIsVisible(false);
+                //setCurrentFrame(0);
+              }}/>
+          </IconButton>
+        </div>
+
         {/*<Slider
           sx={{
             '& .MuiSlider-thumb': {
@@ -170,7 +184,7 @@ function FullImageContainer({ fullImageSrc, setFullImageSrc, isVisible, setIsVis
       </div>
 
 
-    </div>)
+    </div >)
 }
 const gridComponents = {
   List: forwardRef(({ style, children, ...props }: { style: any, children: any }, ref: any) => (
@@ -220,10 +234,13 @@ const ItemWrapper = ({ index, result, setFullImageSrc, setIsVisible }:
       <span style={{ padding: "4px", fontSize: "0.8rem", color: "rgb(228, 228, 17)", maxLines: "1", textOverflow: "ellipsis" }}>{`${result.episode}`}</span>
       <span style={{ padding: "4px", fontSize: "0.8rem", color: "red", maxLines: "1", textOverflow: "ellipsis" }}>{`${result.id}`}</span>
       <span style={{ padding: "4px", fontSize: "0.8rem", color: "white", maxLines: "1", textOverflow: "ellipsis" }}>{`${result.name}`}</span>
-      <div style={{ position: "absolute", right: "0px" }}>
+    </div>
 
-        <Tooltip title={<h1 style={{ fontSize: "18px" }}>{result.i_imgur}</h1>} arrow>
-          <IconButton style={{background:"rgba(255, 255, 255, 0.5)", margin:"5px"}}>
+    <div style={{ position: "absolute", width: "inherit" }}>
+      <div style={{ position: "absolute", right: "0", bottom: "0" }}>
+        <Tooltip
+          title={<h1 style={{ fontSize: "18px" }}>{result.i_imgur}</h1>} arrow>
+          <IconButton style={{ background: "rgba(255, 255, 255, 0.5)", margin: "5px" }}>
             <ContentCopyIcon onClick={function (e) {
               navigator.clipboard.writeText(result.i_imgur)
             }}>
@@ -233,7 +250,6 @@ const ItemWrapper = ({ index, result, setFullImageSrc, setIsVisible }:
         </Tooltip>
       </div>
     </div>
-
 
 
     <Tooltip title={<h1 style={{ fontSize: "18px" }}>{result.name}</h1>} arrow>
@@ -247,6 +263,7 @@ const ItemWrapper = ({ index, result, setFullImageSrc, setIsVisible }:
         }}
         loading="lazy"
         src={result.i_imgur} />
+
     </Tooltip>
 
   </div>

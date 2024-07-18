@@ -13,10 +13,15 @@
 
     .close-button {
         position: absolute;
-        width: 10dvh;
-        height: 10dvh;
         color: red;
+        top: 0dvh;
         right: 20dvw;   
+    }
+
+    .copy-button {
+        position: absolute;
+        left: 20dvw;
+        top: 0dvh;
     }
 }
 
@@ -36,10 +41,15 @@
     }
     .close-button {
         position: absolute;
-        width: 10dvh;
-        height: 10dvh;
         color: red;
+        top: 0dvh;
         right: 20dvw;   
+    }
+
+    .copy-button {
+        position: absolute;
+        left: 20dvw;
+        top: 0dvh;
     }
 }
 
@@ -57,10 +67,15 @@
     }
     .close-button {
         position: absolute;
-        width: 10dvh;
-        height: 10dvh;
         color: red;
+        top: 0dvh;
         right: 20dvw;   
+    }
+
+    .copy-button {
+        position: absolute;
+        left: 20dvw;
+        top: 0dvh;
     }
 }
 
@@ -77,11 +92,15 @@
     }
     .close-button {
         position: absolute;
-        width: 10dvh;
-        height: 10dvh;
         color: red;
-        right: 10dvw;   
-        top: 10dvh; 
+        right: 0dvw;   
+        top: 20dvh; 
+    }
+
+    .copy-button {
+        position: absolute;
+        left: 0dvw;
+        top: 20dvh;
     }
 }
 
@@ -98,10 +117,14 @@
     }
     .close-button {
         position: absolute;
-        width: 10dvh;
-        height: 10dvh;
         color: red;
-        right: 10dvw;  
-        top: 10dvh; 
+        right: 0dvw;  
+        top: 20dvh; 
+    }
+
+    .copy-button {
+        position: absolute;
+        left: 0dvw;
+        top: 20dvh;
     }
 }
