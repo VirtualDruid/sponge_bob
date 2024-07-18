@@ -236,46 +236,47 @@ const ItemWrapper = ({ index, result, setFullImageSrc, setIsVisible }:
       <span style={{ padding: "4px", fontSize: "0.8rem", color: "white", maxLines: "1", textOverflow: "ellipsis" }}>{`${result.name}`}</span>
     </div>
 
-    <div style={{ position: "absolute" }} className="result-item" onClick={function (e) {
-      //initial set
-      setFullImageSrc(result.i_imgur);
-      //setSegment({ episode: result.episode, frame_current: result.frame_start, frame_start: result.frame_start, frame_end: result.frame_end })
-      setIsVisible(true);
-      //setCurrentFrame(result.frame_start);
-    }}>
-      <div style={{ position: "absolute", right: "0", bottom: "0" }}>
-        <Tooltip
-          title={<h1 style={{ fontSize: "18px" }}>{result.i_imgur}</h1>} arrow>
-            <a href={result.i_imgur}>
-          <IconButton
-            style={{ background: "rgba(255, 255, 255, 0.5)", margin: "5px" }}
-            onClick={function (e) {
-              e.preventDefault()
-              e.stopPropagation();
-              navigator.clipboard.writeText(result.i_imgur);
-            }}
-            >
-            <ContentCopyIcon/>
-          </IconButton>
-          </a>
-        </Tooltip>
-      </div>
-    </div>
-
-
     <Tooltip title={<h1 style={{ fontSize: "18px" }}>{result.name}</h1>} arrow>
-      <img className="result-item"
-        onClick={function (e) {
-          //initial set
-          setFullImageSrc(result.i_imgur);
-          //setSegment({ episode: result.episode, frame_current: result.frame_start, frame_start: result.frame_start, frame_end: result.frame_end })
-          setIsVisible(true);
-          //setCurrentFrame(result.frame_start);
-        }}
-        loading="lazy"
-        src={result.i_imgur} />
+      <div style={{ position: "absolute" }} className="result-item" onClick={function (e) {
+        //initial set
+        setFullImageSrc(result.i_imgur);
+        //setSegment({ episode: result.episode, frame_current: result.frame_start, frame_start: result.frame_start, frame_end: result.frame_end })
+        setIsVisible(true);
+        //setCurrentFrame(result.frame_start);
+      }}>
+        <div style={{ position: "absolute", right: "0", bottom: "0" }}>
+          <Tooltip
+            title={<h1 style={{ fontSize: "18px" }}>{result.i_imgur}</h1>} arrow>
+            <a href={result.i_imgur}>
+              <IconButton
+                style={{ background: "rgba(255, 255, 255, 0.5)", margin: "5px" }}
+                onClick={function (e) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  navigator.clipboard.writeText(result.i_imgur);
+                }}
+              >
+                <ContentCopyIcon />
+              </IconButton>
+            </a>
+          </Tooltip>
+        </div>
+      </div>
 
     </Tooltip>
+
+
+    <img className="result-item"
+      onClick={function (e) {
+        //initial set
+        setFullImageSrc(result.i_imgur);
+        //setSegment({ episode: result.episode, frame_current: result.frame_start, frame_start: result.frame_start, frame_end: result.frame_end })
+        setIsVisible(true);
+        //setCurrentFrame(result.frame_start);
+      }}
+      loading="lazy"
+      src={result.i_imgur} />
+
 
   </div>
 );
