@@ -236,7 +236,7 @@ const ItemWrapper = ({ index, result, setFullImageSrc, setIsVisible }:
       <span style={{ padding: "4px", fontSize: "0.8rem", color: "white", maxLines: "1", textOverflow: "ellipsis" }}>{`${result.name}`}</span>
     </div>
 
-    <div style={{ position: "absolute", width: "inherit" }}>
+    <div style={{ position: "absolute"}} className="result-item">
       <div style={{ position: "absolute", right: "0", bottom: "0" }}>
         <Tooltip
           title={<h1 style={{ fontSize: "18px" }}>{result.i_imgur}</h1>} arrow>
